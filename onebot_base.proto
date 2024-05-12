@@ -6,3 +6,14 @@ message Message{
     string type = 1;
     map<string, string> data = 2;
 }
+
+message ForwardMsg{
+    string name = 1;
+    string uin = 2;
+    IMessage content = 3;
+}
+
+message IMessage{
+    string type = 1;
+    map<string, string> extra = 2;
+}

@@ -49,58 +49,46 @@ enum ActionType{
     friend_poke = 139;
 }
 
-message API{
-    Params params = 1;
-    string echo = 2;
-    oneof Action{
-        string send_private_msg = 101;
-        string send_group_msg = 102;
-        string send_msg = 103;
-        string send_forward_msg = 104;
-        string delete_msg = 105;
-        string get_msg = 106;
-        string get_forward_msg = 107;
-        string send_like = 108;
-        string set_group_kick = 109;
-        string set_group_ban = 110;
-        string set_group_anonymous_ban = 111;
-        string set_group_whole_ban = 112;
-        string set_group_admin = 113;
-        string set_group_anonymous = 114;
-        string set_group_card = 115;
-        string set_group_name = 116;
-        string set_group_leave = 117;
-        string set_group_special_title = 118;
-        string set_friend_add_request = 119;
-        string set_group_add_request = 120;
-        string get_login_info = 121;
-        string get_stranger_info = 122;
-        string get_group_list = 123;
-        string get_group_member_info =124;
-        string get_group_member_list = 125;
-        string get_group_honor_info = 126;
-        string get_cookies = 127;
-        string get_csrf_token = 128;
-        string get_credentials = 129;
-        string get_record = 130;
-        string get_image = 131;
-        string can_send_image = 132;
-        string can_send_record = 133;
-        string get_status = 134;
-        string get_version_info = 135;
-        string set_restart = 136;
-        string clean_cache = 137;
-        string group_poke = 138;
-        string friend_poke = 139;
-    }
-    map<string, string> extra = 255;
-}
-
 message Params{
     int64 user_id = 1;
     int64 group_id = 2;
     Message message = 3;
     google.protobuf.Any messages = 4;
+    string message_type = 5;
+    bool auto_escape = 6;
+    int64 message_id = 7;
+    string id = 8;
+    bool reject_add_request = 9;
+    int64 duration = 10;
+    bool enable = 11;
+    string card = 12;
+    string group_name = 13;
+    string flag = 14;
+    bool approve = 15;
+    string remark = 16;
+    bool is_dismiss = 17;
+    string special_title = 18;
+    string sub_type = 19;
+    string type = 20;
+    string reason = 21;
+    string nick_name = 22;
+    bool no_cache = 23;
+    string domain = 24;
+    string file = 25;
+    int32 delay = 26;
+    string out_format = 27;
+    int32 times = 28;
+    Anonymous anonymous = 29;
+    string anonymous_flag = 30;
+    string name = 31;
+    string uin = 32;
+    string content = 33;
+}
+
+message Anonymous{
+    int64 id = 1;
+    string name = 2;
+    string flag = 3;
 }
 
 message SendPrivateMsgReq{
@@ -528,4 +516,268 @@ message SendFriendPokeReq{
 }
 
 message SendFriendPokeResp{
+}
+
+message ForwardParams{
+    repeated ForwardMsg messages = 1; 
+}
+
+message OSendMsgResponse{
+    string status = 1;
+    int32 retcode = 2;
+    SendPrivateMsgResp data = 3;
+    string echo = 4;
+}
+
+
+message OGetGroupMemberInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetGroupMemberInfoResp data = 3;
+    string echo = 4;
+}
+
+message OGetGroupInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetGroupInfoResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupBanResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupBanResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupKickResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupKickResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupLeaveResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupLeaveResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupWholeBanResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupWholeBanResp data = 3;
+    string echo = 4;
+}
+
+message ODeleteMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    DeleteMsgResp data = 3;
+    string echo = 4;
+}
+
+message OGetMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetMsgResp data = 3;
+    string echo = 4;
+}
+
+message OGetForwardMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetForwardMsgResp data = 3;
+    string echo = 4;
+}
+
+message OSendLikeResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendLikeResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupAnonymousBanResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupAnonymousBanResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupAdminResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupAdminResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupAnonymousResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupAnonymousResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupCardResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupCardResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupNameResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupNameResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupSpecialTitleResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupSpecialTitleResp data = 3;
+    string echo = 4;
+}
+
+message OSetFriendAddRequestResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetFriendAddRequestResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupAddRequestResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupAddRequestResp data = 3;
+    string echo = 4;
+}
+
+message OGetLoginInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetLoginInfoResp data = 3;
+    string echo = 4;
+}
+
+message OGetStrangerInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetStrangerInfoResp data = 3;
+    string echo = 4;
+}
+
+message OGetFriendListResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetFriendListResp data = 3;
+    string echo = 4;
+}
+
+message OGetGroupListResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetGroupListResp data = 3;
+    string echo = 4;
+}
+
+message OGetGroupMemberListResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetGroupMemberListResp data = 3;
+    string echo = 4;
+}
+
+message OGetGroupHonorInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetGroupHonorInfoResp data = 3;
+    string echo = 4;
+}
+
+message OGetCookiesResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetCookiesResp data = 3;
+    string echo = 4;
+}
+
+message OGetCsrfTokenResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetCsrfTokenResp data = 3;
+    string echo = 4;
+}
+
+message OGetCredentialsResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetCredentialsResp data = 3;
+    string echo = 4;
+}
+
+message OGetRecordResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetRecordResp data = 3;
+    string echo = 4;
+}
+
+message OGetImageResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetImageResp data = 3;
+    string echo = 4;
+}
+
+message OCanSendRecordResp{
+    string status = 1;
+    int32 retcode = 2;
+    CanSendRecordResp data = 3;
+    string echo = 4;
+}
+
+message OCanSendImageResp{
+    string status = 1;
+    int32 retcode = 2;
+    CanSendImageResp data = 3;
+    string echo = 4;
+}
+
+message OGetStatusResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetStatusResp data = 3;
+    string echo = 4;
+}
+
+message OGetVersionInfoResp{
+    string status = 1;
+    int32 retcode = 2;
+    GetVersionInfoResp data = 3;
+    string echo = 4;
+}
+
+message OSetRestartResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetRestartResp data = 3;
+    string echo = 4;
+}
+
+message OCleanCacheResp{
+    string status = 1;
+    int32 retcode = 2;
+    CleanCacheResp data = 3;
+    string echo = 4;
+}
+
+message OSendForwardMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    string data = 3;
+    string echo = 4;
 }
