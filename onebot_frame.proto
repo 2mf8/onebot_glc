@@ -1,12 +1,13 @@
 syntax = "proto3";
 package onebot;
+import "onebot_base.proto";
 import "onebot_api.proto";
 import "onebot_event.proto";
 import "google/protobuf/any.proto";
 option go_package="./onebot";
 
 message Frame{
-    int64 bot_id = 1;
+    string bot_id = 1;
     FrameType frame_type = 2;
     string echo = 3;
     bool ok = 4; // 是否正常 （API resp)
@@ -22,6 +23,71 @@ message Frame{
     int32 code = 14;
     google.protobuf.Any data = 15;
     Params params = 16;
+    int32 message_id = 17;
+    int64 user_id = 18;
+    repeated Message message = 19;
+    string raw_message = 20;
+    int32 font = 21;
+    Sender sender = 22;
+    Anonymous anonymous = 23;
+    int64 group_id = 24;
+    File file = 25;
+    string group_name = 26;
+    string sender_card = 27;
+    int64 target_id = 28;
+    string target_card = 29;
+    string honor = 30;
+    int64 operator_id = 31;
+    string member_uid = 32;
+    string operator_uid = 33;
+    uint32 exit_type = 34;
+    string invitor_uid = 35;
+    uint32 join_type = 36;
+    int64 duration = 37;
+    string target_uid = 38;
+    uint32 source_uin = 39;
+    string source_uid = 40;
+    string msg = 41;
+    string source = 42;
+    string author_uid = 43;
+    uint64 sequence = 44;
+    uint32 random = 45;
+    string from_uid = 46;
+    string comment = 47;
+    string flag = 48;
+    int64 request_id = 49;
+    string user_nick = 50;
+
+    string action_uin_nick = 52;
+    int64 action_uin = 53;
+    bool check = 54;
+    bool suspicious = 55;
+
+    
+    string answer = 58;
+    message Anonymous{
+        int64 id = 1;
+        string name = 2;
+        string flag = 3;
+    }
+    message File{
+        string id = 1;
+        string name = 2;
+        int64 size = 3;
+        int64 busid = 4;
+        string url = 5;
+    }
+    message Sender{
+        int64 user_id = 1;
+        string nickname = 2;
+        string card = 3;
+        string sex = 4;
+        int32 age = 5;
+        string area = 6;
+        string level = 7;
+        string role = 8;
+        string title = 9;
+    }
     oneof Action{
         string send_private_msg = 401;
         string send_group_msg = 402;
