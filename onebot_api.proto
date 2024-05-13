@@ -52,7 +52,7 @@ enum ActionType{
 message Params{
     int64 user_id = 1;
     int64 group_id = 2;
-    Message message = 3;
+    repeated Message message = 3;
     google.protobuf.Any messages = 4;
     string message_type = 5;
     bool auto_escape = 6;
