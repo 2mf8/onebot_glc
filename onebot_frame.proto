@@ -57,14 +57,12 @@ message Frame{
     string flag = 48;
     int64 request_id = 49;
     string user_nick = 50;
-
+    string action = 51;
     string action_uin_nick = 52;
     int64 action_uin = 53;
     bool check = 54;
     bool suspicious = 55;
-
-    
-    string answer = 58;
+    string answer = 56;
     message Anonymous{
         int64 id = 1;
         string name = 2;
@@ -87,47 +85,6 @@ message Frame{
         string level = 7;
         string role = 8;
         string title = 9;
-    }
-    oneof Action{
-        string send_private_msg = 401;
-        string send_group_msg = 402;
-        string send_msg = 403;
-        string send_forward_msg = 404;
-        string delete_msg = 405;
-        string get_msg = 406;
-        string get_forward_msg = 407;
-        string send_like = 408;
-        string set_group_kick = 409;
-        string set_group_ban = 410;
-        string set_group_anonymous_ban = 411;
-        string set_group_whole_ban = 412;
-        string set_group_admin = 413;
-        string set_group_anonymous = 414;
-        string set_group_card = 415;
-        string set_group_name = 416;
-        string set_group_leave = 417;
-        string set_group_special_title = 418;
-        string set_friend_add_request = 419;
-        string set_group_add_request = 420;
-        string get_login_info = 421;
-        string get_stranger_info = 422;
-        string get_group_list = 423;
-        string get_group_member_info =124;
-        string get_group_member_list = 425;
-        string get_group_honor_info = 426;
-        string get_cookies = 427;
-        string get_csrf_token = 428;
-        string get_credentials = 429;
-        string get_record = 430;
-        string get_image = 431;
-        string can_send_image = 432;
-        string can_send_record = 433;
-        string get_status = 434;
-        string get_version_info = 435;
-        string set_restart = 436;
-        string clean_cache = 437;
-        string group_poke = 438;
-        string friend_poke = 439;
     }
     map<string, string> extra = 100;
 
