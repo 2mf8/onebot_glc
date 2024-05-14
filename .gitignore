@@ -1,2 +1,4 @@
-onebot
-dto/
+golang/onebot/
+golang/dto/
+typescript/node_modules/
+typescript/dto

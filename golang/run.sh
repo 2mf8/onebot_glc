@@ -1,0 +1,1 @@
+protoc --go_out=$(dirname "$PWD")/golang --go-grpc_out=$(dirname "$PWD")/golang $(dirname "$PWD")/*.proto

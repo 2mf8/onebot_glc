@@ -87,12 +87,13 @@ message Plugin{
     string name = 1;
     bool disabled = 2;
     bool json = 3;
-    repeated string urls = 4;
-    repeated int32 event_filter = 5;
-    repeated int32 api_filter = 6;
-    string regex_filter = 7;
-    string regex_replace = 8;
-    repeated Header extra_header = 9;
+    int32 protocol = 4;
+    repeated string urls = 5;
+    repeated int32 event_filter = 6;
+    repeated int32 api_filter = 7;
+    string regex_filter = 8;
+    string regex_replace = 9;
+    repeated Header extra_header = 10;
     message Header{
         string key = 1;
         repeated string value = 2;

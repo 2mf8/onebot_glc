@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "proto2js": "^1.0.9",
+    "ts-proto": "^1.141.1"
+  }
+}
