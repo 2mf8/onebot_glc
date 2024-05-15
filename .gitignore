@@ -2,3 +2,5 @@ golang/onebot/
 golang/dto/
 typescript/node_modules/
 typescript/dto
+javascript/node_modules/
+javascript/dto

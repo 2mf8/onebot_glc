@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@types/long": "^4.0.1",
+    "@types/node": "^12.0.0",
+    "long": "^4.0.0",
+    "protobufjs": "^6.11.2",
+    "typescript": "^4.1.2"
+  },
+  "scripts": {
+    "build:proto": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/proto.js ../http_dto.proto --force-long && npx pbts -o ../javascript/dto/proto.d.ts ../javascript/dto/proto.js",
+    "build:frame": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/onebot_frame.js ../onebot_frame.proto --force-long && npx pbts -o ../javascript/dto/onebot_frame.d.ts ../javascript/dto/onebot_frame.js",
+    "build:api": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/onebot_api.js ../onebot_api.proto --force-long && npx pbts -o ../javascript/dto/onebot_api.d.ts ../javascript/dto/onebot_api.js",
+    "build:base": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/onebot_base.js ../onebot_base.proto --force-long && npx pbts -o ../javascript/dto/onebot_base.d.ts ../javascript/dto/onebot_base.js",
+    "build:event": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/onebot_event.js ../onebot_event.proto --force-long && npx pbts -o ../javascript/dto/onebot_event.d.ts ../javascript/dto/onebot_event.js",
+    "build:forward": "npx pbjs -t static-module -w commonjs -o ../javascript/dto/onebot_forward.js ../onebot_forward.proto --force-long && npx pbts -o ../javascript/dto/onebot_forward.d.ts ../javascript/dto/onebot_forward.js"
+  }
+}

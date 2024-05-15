@@ -522,10 +522,52 @@ message ForwardParams{
     repeated ForwardMsg messages = 1; 
 }
 
-message OSendMsgResponse{
+message OSendPrivateMsgResp{
     string status = 1;
     int32 retcode = 2;
     SendPrivateMsgResp data = 3;
+    string echo = 4;
+}
+
+message OSendGroupMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendGroupMsgResp data = 3;
+    string echo = 4;
+}
+
+message OSendGroupPokeResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendGroupPokeResp data = 3;
+    string echo = 4;
+}
+
+message OSendFriendPokeResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendFriendPokeResp data = 3;
+    string echo = 4;
+}
+
+message OSetGroupSignInResp{
+    string status = 1;
+    int32 retcode = 2;
+    SetGroupSignInResp data = 3;
+    string echo = 4;
+}
+
+message OSendMusicResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendMusicResp data = 3;
+    string echo = 4;
+}
+
+message OSendMsgResp{
+    string status = 1;
+    int32 retcode = 2;
+    SendMsgResp data = 3;
     string echo = 4;
 }
 
