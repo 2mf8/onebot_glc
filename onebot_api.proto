@@ -84,6 +84,8 @@ message Params{
     string name = 31;
     string uin = 32;
     string content = 33;
+    int64 to_uin = 34;
+    int64 aio_uin = 35;
 }
 
 message Anonymous{
