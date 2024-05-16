@@ -47,6 +47,7 @@ enum ActionType{
     clean_cache = 137;
     group_poke = 138;
     friend_poke = 139;
+    get_group_info = 140;
 }
 
 message Params{
