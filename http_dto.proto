@@ -118,6 +118,22 @@ message DeletePluginReq{
 message DeletePluginResp{
 }
 
+message ReLoginReq {
+    int64 bot_id = 1;
+}
+
+message ReLoginResp {
+    int64 bot_id = 1;
+    bool success = 2;
+}
+
+message RestartReq{
+    bool restart = 1;
+}
+
+message RestartResp {
+    bool success = 1;
+}
 
 service HttpService{
     rpc CreateBot(CreateBotReq)returns (CreateBotResp);
@@ -126,6 +142,8 @@ service HttpService{
     rpc SolveCaptcha(SolveCaptchaReq)returns (SolveCaptchaResp);
     rpc FetchQRCode(FetchQRCodeReq)returns (QRCodeLoginResp);
     rpc QueryQRCodeStatus(QueryQRCodeStatusReq)returns (QRCodeLoginResp);
+    rpc ReloginBot(ReLoginReq)returns (ReLoginResp);
+    rpc Restart(RestartReq)returns (RestartResp);
 
     rpc ListPlugin(ListPluginReq)returns (ListPluginResp);
     rpc SavePlugin(SavePluginReq)returns (SavePluginResp);
