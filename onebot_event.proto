@@ -237,3 +237,71 @@ message GroupRequestEvent{
     string answer = 19;
     map<string, string> extra = 255;
 }
+
+message GroupDigestEvent{
+    int64 time = 1;
+    int64 self_id = 2;
+    string post_type = 3;
+    string notice_type = 4;
+    string sub_type = 5;
+    uint32 group_uin = 6;   // GroupUin          uint32
+    uint32 message_id = 7;  // MessageID         uint32
+    uint32 internal_message_id = 8; // InternalMessageID uint32
+    uint32 operation_type = 9;  // OperationType     uint32 // 1 -> 设置精华消息, 2 -> 移除精华消息
+    uint32 operation_time = 10;  // OperateTime       uint32
+    uint32 sender_uin = 11;  // SenderUin         uint32
+    uint32 operator_uin = 12; // OperatorUin       uint32
+    string sender_nick = 13; // SenderNick        string
+    string operation_nick = 14;  // OperatorNick      string
+    map<string, string> extra = 255;
+}
+
+message GroupMemberPermissionChangedEvent{
+    int64 time = 1;
+    int64 self_id = 2;
+    string post_type = 3;
+    string notice_type = 4;
+    string sub_type = 5;
+    GroupMessageEvent group_event = 6;
+    uint32 target_uin = 7;  //  TargetUin uint32
+    string target_uid = 8;  //  TargetUid string
+    bool is_admin = 9;  //  IsAdmin   bool
+    map<string, string> extra = 255;
+}
+
+message GroupNameUpdatedEvent {
+    int64 time = 1;
+    int64 self_id = 2;
+    string post_type = 3;
+    string notice_type = 4;
+    string sub_type = 5;
+    uint32 group_uin = 6;   //  GroupUin    uint32
+    string new_name = 7;    //  NewName     string
+    uint32 operator_uin = 8;    //  OperatorUin uint32
+    string operator_uid = 9;    //  OperatorUid string
+    map<string, string> extra = 255;
+}
+
+message MemberSpecialTitleUpdatedEvent {
+    int64 time = 1;
+    int64 self_id = 2;
+    string post_type = 3;
+    string notice_type = 4;
+    string sub_type = 5;
+    uint32 group_uin = 6;   //  GroupUin uint32
+    uint32 uin = 7;    //  Uin      uint32
+    string new_title = 8;   //  NewTitle string
+    map<string, string> extra = 255;
+}
+
+message RenameEvent {
+    int64 time = 1;
+    int64 self_id = 2;
+    string post_type = 3;
+    string notice_type = 4;
+    string sub_type = 5;
+    uint32 uin = 6; //  Uin      uint32
+    string uid = 7;//  Uid      string
+    string nick_name = 8;   //  Nickname string
+    map<string, string> extra = 255;
+}
